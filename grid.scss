@@ -1,0 +1,134 @@
+$small: 600;
+$medium: 840;
+$large: 1200;
+$debug: false;
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    @if $debug {
+        background: lightgray;
+    }
+    width: calc(100% - 10vw);
+    margin: auto;
+    height: 100%;
+}
+.grid {
+    @if $debug {
+        background-color: red;
+    }
+    width: 100%;
+    
+    .row {
+        @if $debug {
+            background-color: yellow;
+        }
+        min-height: 40px;
+        padding: 5px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-items: center;
+        padding-left:5px;
+        padding-top: 5px;
+        border-bottom: 2px solid #333;
+        
+        .cell {
+            @if $debug {
+                background-color: blue;
+                color: white;
+            }
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 12px;
+            flex: 1;
+            flex-basis: calc(100px - 5px);
+
+            .vertical-grid {
+                @if $debug {
+                    background-color: purple;
+                    color: white;
+                }
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-items: center;
+            }
+            .vcell {
+                @if $debug {
+                    background-color: green;
+                    color: white;
+                }
+                margin-bottom: 5px;
+                font-size: 12px;
+                width: 100%;
+            }
+        }
+        .cell-offset {
+            height: 1px;
+        }
+        @for $i from 2 through 11 {
+            .cell-#{$i} {
+                flex-basis: calc(#{$i} * calc(100px - 5px));
+            }
+        }
+        .cell-12 {
+            flex-basis: calc(100% - 5px);
+        }
+
+        /* Elements */
+        .checkbox {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            width:25px;
+            height: 25px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            input {
+                position: absolute;
+                opacity: 0;
+                height: 0;
+                width: 0;
+                &:checked ~ .mark {
+                    background-color: #2196F3;
+                    &::after {
+                        display: block;
+                    }
+                }
+            }
+            &:hover {
+                input ~ .mark {
+                    background-color: #ccc;
+                }
+            }
+            .mark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 25px;
+                width: 25px;
+                background-color: #eee;
+                &::after {
+                    left: 9px;
+                    top: 5px;
+                    width: 5px;
+                    height: 10px;
+                    border: solid white;
+                    border-width: 0 3px 3px 0;
+                    -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                    content: '';
+                    position: absolute;
+                    display: none;
+                }
+            }
+        } // Cell        
+    } // Row
+} // Grid

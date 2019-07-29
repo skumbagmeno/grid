@@ -1,0 +1,131 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: calc(100% - 10vw);
+  margin: auto;
+  height: 100%;
+}
+
+.grid {
+  width: 100%;
+}
+.grid .row {
+  min-height: 40px;
+  padding: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-items: center;
+  padding-left: 5px;
+  padding-top: 5px;
+  border-bottom: 2px solid #333;
+  /* Elements */
+}
+.grid .row .cell {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  flex: 1;
+  flex-basis: calc(100px - 5px);
+}
+.grid .row .cell .vertical-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: center;
+}
+.grid .row .cell .vcell {
+  margin-bottom: 5px;
+  font-size: 12px;
+  width: 100%;
+}
+.grid .row .cell-offset {
+  height: 1px;
+}
+.grid .row .cell-2 {
+  flex-basis: calc(2 * calc(100px - 5px));
+}
+.grid .row .cell-3 {
+  flex-basis: calc(3 * calc(100px - 5px));
+}
+.grid .row .cell-4 {
+  flex-basis: calc(4 * calc(100px - 5px));
+}
+.grid .row .cell-5 {
+  flex-basis: calc(5 * calc(100px - 5px));
+}
+.grid .row .cell-6 {
+  flex-basis: calc(6 * calc(100px - 5px));
+}
+.grid .row .cell-7 {
+  flex-basis: calc(7 * calc(100px - 5px));
+}
+.grid .row .cell-8 {
+  flex-basis: calc(8 * calc(100px - 5px));
+}
+.grid .row .cell-9 {
+  flex-basis: calc(9 * calc(100px - 5px));
+}
+.grid .row .cell-10 {
+  flex-basis: calc(10 * calc(100px - 5px));
+}
+.grid .row .cell-11 {
+  flex-basis: calc(11 * calc(100px - 5px));
+}
+.grid .row .cell-12 {
+  flex-basis: calc(100% - 5px);
+}
+.grid .row .checkbox {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.grid .row .checkbox input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.grid .row .checkbox input:checked ~ .mark {
+  background-color: #2196F3;
+}
+.grid .row .checkbox input:checked ~ .mark::after {
+  display: block;
+}
+.grid .row .checkbox:hover input ~ .mark {
+  background-color: #ccc;
+}
+.grid .row .checkbox .mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+.grid .row .checkbox .mark::after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/*# sourceMappingURL=grid.css.map */
