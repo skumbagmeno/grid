@@ -6,18 +6,21 @@
     <body>
         <div class="container">
             <div class="grid">
-                <div class="row">
-                    <?php
-                    for ($i = 0; $i < 20; $i++) { ?>
-                        <div class="cell">
+                <?php
+                for ($i = 0; $i < 20; $i++) { ?>
+                    <div class="row bg-red">
+                        <div class="cell cell-1 bg-green">
                             <label class="checkbox">
                                 <input type="checkbox">
                                 <span class="mark"></span>
                             </label>
                         </div>
-                    <?php
-                    } ?>
-                </div>
+                        <div class="cell cell-3">
+                            <div class="titolo lg">CEEPORT SRL</div>
+                        </div>
+                    </div>
+                <?php
+                } ?>
             </div>
         </div>
 

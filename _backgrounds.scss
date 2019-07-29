@@ -1,0 +1,21 @@
+// _backgrounds.scss
+$colorNames: ('orange', 'yellow', 'green', 'red', 'blue');
+$colorDefault: ('#FC9C49','#FED766','#11AF3E','#FE4A49','#009FB7');
+$colorLight: ('#FCB77B','#FFDC75','#7CC992','#FF7A7A','#6EADB7');
+$colorDark: ('#9B4D09','#937005','#1F5B30','#5E1B1B','#004049');
+
+@for $i from 1 through length($colorNames) {
+    $n: nth($colorNames, $i);
+    $c: nth($colorDefault, $i);
+    $l: nth($colorLight, $i);
+    $d: nth($colorDark, $i);
+    &.bg-#{$n} {
+        background-color: #{$c};
+    }
+    &.bg-#{$n}.light {
+        background-color: #{$l};
+    }
+    &.bg-#{$n}.dark {
+        background-color: #{$d};
+    }
+}
