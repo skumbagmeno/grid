@@ -35,7 +35,6 @@ body {
         padding-top: 5px;
         border-bottom: 2px solid #333;
         margin-bottom: 10px;
-        @import 'backgrounds';
         
         .cell {
             @if $debug {
@@ -47,7 +46,6 @@ body {
             font-size: 12px;
             flex: 1;
             flex-basis: calc(100px - 5px);
-            @import 'backgrounds';
 
             .vertical-grid {
                 @if $debug {
@@ -135,11 +133,22 @@ body {
         } 
 
     } // Row
+
     // Typo
     $titolo: 1.4;
-    $paragr: 1;
-    $dim: ('sm', 'md', 'lg', 'xl');            
+    $paragr: 0.9;
+    $dim: ('xs', 'sm', 'md', 'lg', 'xl');            
     $fatt: -0.3;
+    font-size: #{$paragr}em;
+
+    $pfatt: $fatt;
+    @each $item in $dim {
+        .#{$item} {
+            font-size: #{$paragr + $pfatt}em;
+        }
+        $pfatt: $pfatt + 0.3;
+    }
+
     .titolo {
         font-size: #{$titolo}em;
 
@@ -150,18 +159,24 @@ body {
             }
             $tfatt: $tfatt + 0.5;
         }
-        @import 'colors';
     }
-    .paragr {
-        font-size: #{$paragr}em;
+    .bold {
+        font-weight: 700;
+    }
+    .underline {
+        text-decoration: underline;
+    }
+    .aleft {
+        text-align: left;
+    }
+    .aright {
+        text-align: right;
+    }
+    .acenter {
+        text-align: center;
+    }
 
-        $pfatt: $fatt;
-        @each $item in $dim {
-            &.#{$item} {
-                font-size: #{$paragr + $pfatt}em;
-            }
-            $pfatt: $pfatt + 0.3;
-        }
-        @import 'colors';
-    }  
+    @import 'colors';
+    @import 'backgrounds';
+  
 } // Grid

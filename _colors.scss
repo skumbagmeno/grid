@@ -9,14 +9,13 @@ $colorDark: ('#9B4D09','#937005','#1F5B30','#5E1B1B','#004049');
     $c: nth($colorDefault, $i);
     $l: nth($colorLight, $i);
     $d: nth($colorDark, $i);
-    &.#{$n} {
+    .#{$n} {
         color: #{$c};
     }
-    &.#{$n}.light {
-        color: #{$l}
-        ;
+    .#{$n}.light {
+        color: #{$l};
     }
-    &.#{$n}.dark {
+    .#{$n}.dark {
         color: #{$d};
     }
 }
