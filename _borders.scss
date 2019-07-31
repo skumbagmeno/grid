@@ -1,0 +1,23 @@
+// _borders.scss
+
+.border {
+    border: 1px solid;
+}
+.no-border {
+    border: none;
+}
+@for $i from 1 through length($colorNames) {
+    $n: nth($colorNames, $i);
+    $c: nth($colorDefault, $i);
+    $l: nth($colorLight, $i);
+    $d: nth($colorDark, $i);
+    .border-#{$n} {
+        border-color: #{$c};
+    }
+    .border-#{$n}.border-light {
+        border-color: #{$l};
+    }
+    .border-#{$n}.border-dark {
+        border-color: #{$d};
+    }
+}

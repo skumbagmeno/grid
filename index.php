@@ -18,34 +18,53 @@ $inote = '<svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 51
                                 <span class="mark"></span>
                             </label>
                         </div>
-                        <div class="cell cell-2">
+                        <div class="cell">
                             <div class="titolo sm blue light">CEEPORT SRL</div>
                         </div>
-                        <div class="cell">
+                        <div class="cell cell-1">
                             <div class="sm">12/02/2019</div>
                         </div>
-                        <div class="cell">
+                        <div class="cell cell-1">
                             <div class="sm">12/02/2019</div>
                         </div>
-                        <div class="cell">
+                        <div class="cell cell-1">
                             <div class="sm">1.254,00</div>
                         </div>
-                        <div class="cell">
+                        <div class="cell cell-1">
                             <div class="sm">124,00</div>
                         </div>
-                        <div class="cell">
+                        <div class="cell cell-1">
                             <div class="md blue light bold">1.584,00</div>
                         </div>
-                        <div class="cell">
+                        <div class="cell cell-1">
                             <div class="sm">0,00</div>
                         </div>
-                        <div class="cell">
+                        <div class="cell cell-1">
                             <select>
                                 <option>Valore</option>
                             </select>
                         </div>
-                        <div class="cell">
-                            <?= $inote ?>
+                        <div class="cell cell-1">
+                            <div class="icon">
+                                <?= $inote ?>
+                            </div>
+                        </div>
+                        <div class="cell cell-2 aright">
+                            <div class="button inline round green">
+                                <div class="icon">
+                                    <?= $inote ?>
+                                </div>
+                            </div>
+                            <div class="button inline round blue">
+                                <div class="icon">
+                                    <?= $inote ?>
+                                </div>
+                            </div>
+                            <div class="button inline round red">
+                                <div class="icon">
+                                    <?= $inote ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <?php

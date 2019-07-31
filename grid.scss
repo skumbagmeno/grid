@@ -1,7 +1,19 @@
+$debug: false;
+$light: #F9F9F9;
+$dark: #333333;
+$colorNames: ('orange', 'yellow', 'green', 'red', 'blue');
+$colorDefault: ('#FC9C49','#FED766','#11AF3E','#FE4A49','#009FB7');
+$colorLight: ('#FCB77B','#FFDC75','#7CC992','#FF7A7A','#6EADB7');
+$colorDark: ('#9B4D09','#937005','#1F5B30','#5E1B1B','#004049');
 $small: 600;
 $medium: 840;
 $large: 1200;
-$debug: false;
+$titolo: 1.4;
+$paragr: 0.9;
+$dim: ('xs', 'sm', 'md', 'lg', 'xl');            
+$fatt: -0.3;
+$icon: 5;
+$iconIncrement: 10;
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -66,7 +78,86 @@ body {
                 font-size: 12px;
                 width: 100%;
             }
-        }
+            .icon {
+                text-align: center;
+                width: 20px;
+                height: 20px;
+
+                $i: $iconIncrement;
+                @each $item in $dim {
+                    &.#{$item} {
+                        width: #{$icon + $i}px;
+                        height: #{$icon + $i}px;
+                    }
+                    $i: $i + $iconIncrement;
+                }
+                img, svg {
+                    max-width: 100%;
+                    height: auto;
+                    max-height: 100%;
+                }
+            }
+            .button {
+                padding: 7px 10px;
+                border: 1px solid $light;
+                cursor: pointer;
+                vertical-align: middle;
+                -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                -o-transition: all 0.2s ease-out;
+                transition: all 0.2s ease-out;
+                margin-left: 6px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &.round {
+                    border-radius: 50%;
+                    padding: 6px;
+                }
+                &.inline {
+                    display: inline-block;
+                }
+                @for $i from 1 through length($colorNames) {
+                    $n: nth($colorNames, $i);
+                    $c: nth($colorDefault, $i);
+                    $l: nth($colorLight, $i);
+                    $d: nth($colorDark, $i);
+                    &.#{$n} {
+                        background-color: #{$c};
+                        color: $light;
+                        border-color: #{$c};
+                        &:hover {
+                            background-color: #{$d};
+                            color: $light;
+                            border-color: #{$d};
+                        }
+                    }
+                    &.#{$n}.light {
+                        background-color: #{$l};
+                        color: $dark;
+                        border-color: #{$l};
+                        &:hover {
+                            background-color: #{$c};
+                            color: $light;
+                            border-color: #{$c};
+                        }
+                    }
+                    &.#{$n}.dark {
+                        background-color: #{$d};
+                        color: $light;
+                        border-color: #{$d};
+                        &:hover {
+                            background-color: #{$c};
+                            color: $light;
+                            border-color: #{$c};
+                        }
+                    }
+                }
+                &.no-border {
+                    border: none;
+                }
+            }
+        } // Cell
         .cell-offset {
             height: 1px;
         }
@@ -135,10 +226,6 @@ body {
     } // Row
 
     // Typo
-    $titolo: 1.4;
-    $paragr: 0.9;
-    $dim: ('xs', 'sm', 'md', 'lg', 'xl');            
-    $fatt: -0.3;
     font-size: #{$paragr}em;
 
     $pfatt: $fatt;
@@ -178,5 +265,6 @@ body {
 
     @import 'colors';
     @import 'backgrounds';
+    @import 'borders';
   
 } // Grid
