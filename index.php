@@ -18,7 +18,7 @@ $inote = '<svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 51
                                 <span class="mark"></span>
                             </label>
                         </div>
-                        <div class="cell">
+                        <div class="cell cell-1">
                             <div class="titolo sm blue light">CEEPORT SRL</div>
                         </div>
                         <div class="cell cell-1">

@@ -58,6 +58,13 @@ body {
             font-size: 12px;
             flex: 1;
             flex-basis: calc(100px - 5px);
+            overflow: hidden;
+
+            * {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
 
             .vertical-grid {
                 @if $debug {
