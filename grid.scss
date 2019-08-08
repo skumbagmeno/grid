@@ -275,3 +275,75 @@ body {
     @import 'borders';
   
 } // Grid
+
+.breadcrumb {
+    padding: 5px;
+    margin-bottom: 10px;
+
+    a {
+        text-decoration: none;
+        color: $dark;
+    }
+
+    .item {
+        display: inline-block;
+        margin-left: 5px;
+        &:first-child {
+            margin-left: 0;
+        }
+        &:not(:first-child):before {
+            display: inline-block;
+            padding-right: 10px;
+            width: 5px;
+            content: url('images/bc-arrow.svg')
+        }
+        &.active {
+            font-weight: 600;
+        }
+    }
+    @import 'colors';
+} // Breadcrumb
+
+$width: 250;
+.menu {
+    width: #{$width}px;
+    margin-bottom: 20px;
+    .item {
+        text-align: left;
+        border-bottom: 1px solid #DDD;
+        position: relative;
+        width: #{$width}px;
+        background: #EFEFEF;
+        &.active {
+            background: #DDD;
+        }
+        .subitem {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: #{$width}px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        &:hover {
+            background: #DDD;
+            > .subitem {
+                visibility: visible;
+                pointer-events: all;
+            }
+        }
+        a {
+            text-decoration: none;
+            color: $dark;
+            display: inline-block;
+            width: calc(100% - 20px);
+            margin: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        &:last-child {
+            border: none;
+        }
+    }
+}

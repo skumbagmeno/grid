@@ -542,4 +542,117 @@ body {
   border-color: #004049;
 }
 
+.breadcrumb {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.breadcrumb a {
+  text-decoration: none;
+  color: #333333;
+}
+.breadcrumb .item {
+  display: inline-block;
+  margin-left: 5px;
+}
+.breadcrumb .item:first-child {
+  margin-left: 0;
+}
+.breadcrumb .item:not(:first-child):before {
+  display: inline-block;
+  padding-right: 10px;
+  width: 5px;
+  content: url("images/bc-arrow.svg");
+}
+.breadcrumb .item.active {
+  font-weight: 600;
+}
+.breadcrumb .orange {
+  color: #FC9C49;
+}
+.breadcrumb .orange.light {
+  color: #FCB77B;
+}
+.breadcrumb .orange.dark {
+  color: #9B4D09;
+}
+.breadcrumb .yellow {
+  color: #FED766;
+}
+.breadcrumb .yellow.light {
+  color: #FFDC75;
+}
+.breadcrumb .yellow.dark {
+  color: #937005;
+}
+.breadcrumb .green {
+  color: #11AF3E;
+}
+.breadcrumb .green.light {
+  color: #7CC992;
+}
+.breadcrumb .green.dark {
+  color: #1F5B30;
+}
+.breadcrumb .red {
+  color: #FE4A49;
+}
+.breadcrumb .red.light {
+  color: #FF7A7A;
+}
+.breadcrumb .red.dark {
+  color: #5E1B1B;
+}
+.breadcrumb .blue {
+  color: #009FB7;
+}
+.breadcrumb .blue.light {
+  color: #6EADB7;
+}
+.breadcrumb .blue.dark {
+  color: #004049;
+}
+
+.menu {
+  width: 250px;
+  margin-bottom: 20px;
+}
+.menu .item {
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+  position: relative;
+  width: 250px;
+  background: #EFEFEF;
+}
+.menu .item.active {
+  background: #DDD;
+}
+.menu .item .subitem {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 250px;
+  visibility: hidden;
+  pointer-events: none;
+}
+.menu .item:hover {
+  background: #DDD;
+}
+.menu .item:hover > .subitem {
+  visibility: visible;
+  pointer-events: all;
+}
+.menu .item a {
+  text-decoration: none;
+  color: #333333;
+  display: inline-block;
+  width: calc(100% - 20px);
+  margin: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.menu .item:last-child {
+  border: none;
+}
+
 /*# sourceMappingURL=grid.css.map */
