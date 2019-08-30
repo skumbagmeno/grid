@@ -12,6 +12,8 @@ body {
 
 .grid {
   width: 100%;
+  font-size: 12px;
+  /* Elements */
   font-size: 0.9em;
 }
 .grid .row {
@@ -20,35 +22,24 @@ body {
   flex-flow: row wrap;
   align-items: flex-start;
   justify-items: center;
-  padding-left: 5px;
-  padding-top: 5px;
-  border-bottom: 2px solid #333;
-  margin-bottom: 10px;
-  /* Elements */
+}
+.grid .row.with-border {
+  border: 1px solid #333;
+}
+.grid .row.header {
+  background: #EFEFEF;
+  font-weight: 600;
 }
 .grid .row .cell {
-  margin-right: 5px;
-  margin-bottom: 5px;
-  font-size: 12px;
+  padding: 10px;
   flex: 1;
-  flex-basis: calc(100px - 5px);
+  flex-basis: 20px;
   overflow: hidden;
 }
 .grid .row .cell * {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-.grid .row .cell .vertical-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-items: center;
-}
-.grid .row .cell .vcell {
-  margin-bottom: 5px;
-  font-size: 12px;
-  width: 100%;
 }
 .grid .row .cell .icon {
   text-align: center;
@@ -80,7 +71,68 @@ body {
   height: auto;
   max-height: 100%;
 }
-.grid .row .cell .button {
+.grid .row .cell-offset {
+  height: 1px;
+}
+.grid .row .cell-1 {
+  flex-grow: 0;
+  flex-basis: calc(8.333333% - 20px);
+  max-width: calc(8.333333% - 20px);
+}
+.grid .row .cell-2 {
+  flex-grow: 0;
+  flex-basis: calc(16.666666% - 20px);
+  max-width: calc(16.666666% - 20px);
+}
+.grid .row .cell-3 {
+  flex-grow: 0;
+  flex-basis: calc(24.999999% - 20px);
+  max-width: calc(24.999999% - 20px);
+}
+.grid .row .cell-4 {
+  flex-grow: 0;
+  flex-basis: calc(33.333332% - 20px);
+  max-width: calc(33.333332% - 20px);
+}
+.grid .row .cell-5 {
+  flex-grow: 0;
+  flex-basis: calc(41.666665% - 20px);
+  max-width: calc(41.666665% - 20px);
+}
+.grid .row .cell-6 {
+  flex-grow: 0;
+  flex-basis: calc(49.999998% - 20px);
+  max-width: calc(49.999998% - 20px);
+}
+.grid .row .cell-7 {
+  flex-grow: 0;
+  flex-basis: calc(58.333331% - 20px);
+  max-width: calc(58.333331% - 20px);
+}
+.grid .row .cell-8 {
+  flex-grow: 0;
+  flex-basis: calc(66.666664% - 20px);
+  max-width: calc(66.666664% - 20px);
+}
+.grid .row .cell-9 {
+  flex-grow: 0;
+  flex-basis: calc(74.999997% - 20px);
+  max-width: calc(74.999997% - 20px);
+}
+.grid .row .cell-10 {
+  flex-grow: 0;
+  flex-basis: calc(83.33333% - 20px);
+  max-width: calc(83.33333% - 20px);
+}
+.grid .row .cell-11 {
+  flex-grow: 0;
+  flex-basis: calc(91.666663% - 20px);
+  max-width: calc(91.666663% - 20px);
+}
+.grid .row .cell-12 {
+  flex-basis: 100%;
+}
+.grid .button {
   padding: 7px 10px;
   border: 1px solid #F9F9F9;
   cursor: pointer;
@@ -91,220 +143,260 @@ body {
   transition: all 0.2s ease-out;
   margin-left: 6px;
 }
-.grid .row .cell .button:first-child {
+.grid .button:first-child {
   margin-left: 0;
 }
-.grid .row .cell .button.round {
+.grid .button.round {
   border-radius: 50%;
   padding: 6px;
 }
-.grid .row .cell .button.inline {
+.grid .button.inline {
   display: inline-block;
 }
-.grid .row .cell .button.orange {
+.grid .button.orange {
   background-color: #FC9C49;
   color: #F9F9F9;
   border-color: #FC9C49;
 }
-.grid .row .cell .button.orange:hover {
+.grid .button.orange:hover {
   background-color: #9B4D09;
   color: #F9F9F9;
   border-color: #9B4D09;
 }
-.grid .row .cell .button.orange.light {
+.grid .button.orange.light {
   background-color: #FCB77B;
   color: #333333;
   border-color: #FCB77B;
 }
-.grid .row .cell .button.orange.light:hover {
+.grid .button.orange.light:hover {
   background-color: #FC9C49;
   color: #F9F9F9;
   border-color: #FC9C49;
 }
-.grid .row .cell .button.orange.dark {
+.grid .button.orange.dark {
   background-color: #9B4D09;
   color: #F9F9F9;
   border-color: #9B4D09;
 }
-.grid .row .cell .button.orange.dark:hover {
+.grid .button.orange.dark:hover {
   background-color: #FC9C49;
   color: #F9F9F9;
   border-color: #FC9C49;
 }
-.grid .row .cell .button.yellow {
+.grid .button.yellow {
   background-color: #FED766;
   color: #F9F9F9;
   border-color: #FED766;
 }
-.grid .row .cell .button.yellow:hover {
+.grid .button.yellow:hover {
   background-color: #937005;
   color: #F9F9F9;
   border-color: #937005;
 }
-.grid .row .cell .button.yellow.light {
+.grid .button.yellow.light {
   background-color: #FFDC75;
   color: #333333;
   border-color: #FFDC75;
 }
-.grid .row .cell .button.yellow.light:hover {
+.grid .button.yellow.light:hover {
   background-color: #FED766;
   color: #F9F9F9;
   border-color: #FED766;
 }
-.grid .row .cell .button.yellow.dark {
+.grid .button.yellow.dark {
   background-color: #937005;
   color: #F9F9F9;
   border-color: #937005;
 }
-.grid .row .cell .button.yellow.dark:hover {
+.grid .button.yellow.dark:hover {
   background-color: #FED766;
   color: #F9F9F9;
   border-color: #FED766;
 }
-.grid .row .cell .button.green {
+.grid .button.green {
   background-color: #11AF3E;
   color: #F9F9F9;
   border-color: #11AF3E;
 }
-.grid .row .cell .button.green:hover {
+.grid .button.green:hover {
   background-color: #1F5B30;
   color: #F9F9F9;
   border-color: #1F5B30;
 }
-.grid .row .cell .button.green.light {
+.grid .button.green.light {
   background-color: #7CC992;
   color: #333333;
   border-color: #7CC992;
 }
-.grid .row .cell .button.green.light:hover {
+.grid .button.green.light:hover {
   background-color: #11AF3E;
   color: #F9F9F9;
   border-color: #11AF3E;
 }
-.grid .row .cell .button.green.dark {
+.grid .button.green.dark {
   background-color: #1F5B30;
   color: #F9F9F9;
   border-color: #1F5B30;
 }
-.grid .row .cell .button.green.dark:hover {
+.grid .button.green.dark:hover {
   background-color: #11AF3E;
   color: #F9F9F9;
   border-color: #11AF3E;
 }
-.grid .row .cell .button.red {
+.grid .button.red {
   background-color: #FE4A49;
   color: #F9F9F9;
   border-color: #FE4A49;
 }
-.grid .row .cell .button.red:hover {
+.grid .button.red:hover {
   background-color: #5E1B1B;
   color: #F9F9F9;
   border-color: #5E1B1B;
 }
-.grid .row .cell .button.red.light {
+.grid .button.red.light {
   background-color: #FF7A7A;
   color: #333333;
   border-color: #FF7A7A;
 }
-.grid .row .cell .button.red.light:hover {
+.grid .button.red.light:hover {
   background-color: #FE4A49;
   color: #F9F9F9;
   border-color: #FE4A49;
 }
-.grid .row .cell .button.red.dark {
+.grid .button.red.dark {
   background-color: #5E1B1B;
   color: #F9F9F9;
   border-color: #5E1B1B;
 }
-.grid .row .cell .button.red.dark:hover {
+.grid .button.red.dark:hover {
   background-color: #FE4A49;
   color: #F9F9F9;
   border-color: #FE4A49;
 }
-.grid .row .cell .button.blue {
+.grid .button.blue {
   background-color: #009FB7;
   color: #F9F9F9;
   border-color: #009FB7;
 }
-.grid .row .cell .button.blue:hover {
+.grid .button.blue:hover {
   background-color: #004049;
   color: #F9F9F9;
   border-color: #004049;
 }
-.grid .row .cell .button.blue.light {
+.grid .button.blue.light {
   background-color: #6EADB7;
   color: #333333;
   border-color: #6EADB7;
 }
-.grid .row .cell .button.blue.light:hover {
+.grid .button.blue.light:hover {
   background-color: #009FB7;
   color: #F9F9F9;
   border-color: #009FB7;
 }
-.grid .row .cell .button.blue.dark {
+.grid .button.blue.dark {
   background-color: #004049;
   color: #F9F9F9;
   border-color: #004049;
 }
-.grid .row .cell .button.blue.dark:hover {
+.grid .button.blue.dark:hover {
   background-color: #009FB7;
   color: #F9F9F9;
   border-color: #009FB7;
 }
-.grid .row .cell .button.no-border {
+.grid .button.white {
+  background-color: #FFF;
+  color: #F9F9F9;
+  border-color: #FFF;
+}
+.grid .button.white:hover {
+  background-color: #FFF;
+  color: #F9F9F9;
+  border-color: #FFF;
+}
+.grid .button.white.light {
+  background-color: #FFF;
+  color: #333333;
+  border-color: #FFF;
+}
+.grid .button.white.light:hover {
+  background-color: #FFF;
+  color: #F9F9F9;
+  border-color: #FFF;
+}
+.grid .button.white.dark {
+  background-color: #FFF;
+  color: #F9F9F9;
+  border-color: #FFF;
+}
+.grid .button.white.dark:hover {
+  background-color: #FFF;
+  color: #F9F9F9;
+  border-color: #FFF;
+}
+.grid .button.black {
+  background-color: #333;
+  color: #F9F9F9;
+  border-color: #333;
+}
+.grid .button.black:hover {
+  background-color: #333;
+  color: #F9F9F9;
+  border-color: #333;
+}
+.grid .button.black.light {
+  background-color: #333;
+  color: #333333;
+  border-color: #333;
+}
+.grid .button.black.light:hover {
+  background-color: #333;
+  color: #F9F9F9;
+  border-color: #333;
+}
+.grid .button.black.dark {
+  background-color: #333;
+  color: #F9F9F9;
+  border-color: #333;
+}
+.grid .button.black.dark:hover {
+  background-color: #333;
+  color: #F9F9F9;
+  border-color: #333;
+}
+.grid .button.grey {
+  background-color: #CCC;
+  color: #F9F9F9;
+  border-color: #CCC;
+}
+.grid .button.grey:hover {
+  background-color: #666;
+  color: #F9F9F9;
+  border-color: #666;
+}
+.grid .button.grey.light {
+  background-color: #EFEFEF;
+  color: #333333;
+  border-color: #EFEFEF;
+}
+.grid .button.grey.light:hover {
+  background-color: #CCC;
+  color: #F9F9F9;
+  border-color: #CCC;
+}
+.grid .button.grey.dark {
+  background-color: #666;
+  color: #F9F9F9;
+  border-color: #666;
+}
+.grid .button.grey.dark:hover {
+  background-color: #CCC;
+  color: #F9F9F9;
+  border-color: #CCC;
+}
+.grid .button.no-border {
   border: none;
 }
-.grid .row .cell-offset {
-  height: 1px;
-}
-.grid .row .cell-1 {
-  flex-grow: 0;
-  flex-basis: calc(1 * calc(100px - 5px));
-}
-.grid .row .cell-2 {
-  flex-grow: 0;
-  flex-basis: calc(2 * calc(100px - 5px));
-}
-.grid .row .cell-3 {
-  flex-grow: 0;
-  flex-basis: calc(3 * calc(100px - 5px));
-}
-.grid .row .cell-4 {
-  flex-grow: 0;
-  flex-basis: calc(4 * calc(100px - 5px));
-}
-.grid .row .cell-5 {
-  flex-grow: 0;
-  flex-basis: calc(5 * calc(100px - 5px));
-}
-.grid .row .cell-6 {
-  flex-grow: 0;
-  flex-basis: calc(6 * calc(100px - 5px));
-}
-.grid .row .cell-7 {
-  flex-grow: 0;
-  flex-basis: calc(7 * calc(100px - 5px));
-}
-.grid .row .cell-8 {
-  flex-grow: 0;
-  flex-basis: calc(8 * calc(100px - 5px));
-}
-.grid .row .cell-9 {
-  flex-grow: 0;
-  flex-basis: calc(9 * calc(100px - 5px));
-}
-.grid .row .cell-10 {
-  flex-grow: 0;
-  flex-basis: calc(10 * calc(100px - 5px));
-}
-.grid .row .cell-11 {
-  flex-grow: 0;
-  flex-basis: calc(11 * calc(100px - 5px));
-}
-.grid .row .cell-12 {
-  flex-basis: calc(100% - 5px);
-}
-.grid .row .checkbox {
+.grid .checkbox {
   display: block;
   position: relative;
   cursor: pointer;
@@ -315,22 +407,22 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-.grid .row .checkbox input {
+.grid .checkbox input {
   position: absolute;
   opacity: 0;
   height: 0;
   width: 0;
 }
-.grid .row .checkbox input:checked ~ .mark {
+.grid .checkbox input:checked ~ .mark {
   background-color: #2196F3;
 }
-.grid .row .checkbox input:checked ~ .mark::after {
+.grid .checkbox input:checked ~ .mark::after {
   display: block;
 }
-.grid .row .checkbox:hover input ~ .mark {
+.grid .checkbox:hover input ~ .mark {
   background-color: #ccc;
 }
-.grid .row .checkbox .mark {
+.grid .checkbox .mark {
   position: absolute;
   top: 0;
   left: 0;
@@ -338,7 +430,7 @@ body {
   width: 25px;
   background-color: #eee;
 }
-.grid .row .checkbox .mark::after {
+.grid .checkbox .mark::after {
   left: 9px;
   top: 5px;
   width: 5px;
@@ -445,6 +537,33 @@ body {
 .grid .blue.dark {
   color: #004049;
 }
+.grid .white {
+  color: #FFF;
+}
+.grid .white.light {
+  color: #FFF;
+}
+.grid .white.dark {
+  color: #FFF;
+}
+.grid .black {
+  color: #333;
+}
+.grid .black.light {
+  color: #333;
+}
+.grid .black.dark {
+  color: #333;
+}
+.grid .grey {
+  color: #CCC;
+}
+.grid .grey.light {
+  color: #EFEFEF;
+}
+.grid .grey.dark {
+  color: #666;
+}
 .grid .bg-orange {
   background-color: #FC9C49;
 }
@@ -489,6 +608,33 @@ body {
 }
 .grid .bg-blue.bg-dark {
   background-color: #004049;
+}
+.grid .bg-white {
+  background-color: #FFF;
+}
+.grid .bg-white.bg-light {
+  background-color: #FFF;
+}
+.grid .bg-white.bg-dark {
+  background-color: #FFF;
+}
+.grid .bg-black {
+  background-color: #333;
+}
+.grid .bg-black.bg-light {
+  background-color: #333;
+}
+.grid .bg-black.bg-dark {
+  background-color: #333;
+}
+.grid .bg-grey {
+  background-color: #CCC;
+}
+.grid .bg-grey.bg-light {
+  background-color: #EFEFEF;
+}
+.grid .bg-grey.bg-dark {
+  background-color: #666;
 }
 .grid .border {
   border: 1px solid;
@@ -540,6 +686,33 @@ body {
 }
 .grid .border-blue.border-dark {
   border-color: #004049;
+}
+.grid .border-white {
+  border-color: #FFF;
+}
+.grid .border-white.border-light {
+  border-color: #FFF;
+}
+.grid .border-white.border-dark {
+  border-color: #FFF;
+}
+.grid .border-black {
+  border-color: #333;
+}
+.grid .border-black.border-light {
+  border-color: #333;
+}
+.grid .border-black.border-dark {
+  border-color: #333;
+}
+.grid .border-grey {
+  border-color: #CCC;
+}
+.grid .border-grey.border-light {
+  border-color: #EFEFEF;
+}
+.grid .border-grey.border-dark {
+  border-color: #666;
 }
 
 .breadcrumb {
@@ -611,16 +784,43 @@ body {
 .breadcrumb .blue.dark {
   color: #004049;
 }
+.breadcrumb .white {
+  color: #FFF;
+}
+.breadcrumb .white.light {
+  color: #FFF;
+}
+.breadcrumb .white.dark {
+  color: #FFF;
+}
+.breadcrumb .black {
+  color: #333;
+}
+.breadcrumb .black.light {
+  color: #333;
+}
+.breadcrumb .black.dark {
+  color: #333;
+}
+.breadcrumb .grey {
+  color: #CCC;
+}
+.breadcrumb .grey.light {
+  color: #EFEFEF;
+}
+.breadcrumb .grey.dark {
+  color: #666;
+}
 
 .menu {
-  width: 250px;
+  width: 100%;
   margin-bottom: 20px;
 }
 .menu .item {
   text-align: left;
   border-bottom: 1px solid #DDD;
   position: relative;
-  width: 250px;
+  width: 100%;
   background: #EFEFEF;
 }
 .menu .item.active {

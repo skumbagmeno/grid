@@ -1,0 +1,183 @@
+// row.scss
+
+.row { 
+    @if $debug {
+        background-color: yellow;
+    }
+    min-height: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-items: center;
+
+    &.with-border {
+        border: 1px solid #333;
+    }
+    &.header {
+        background: #EFEFEF;
+        font-weight: 600;
+    }
+    
+    .cell {
+        @if $debug {
+            background-color: blue;
+            color: white;
+        }
+        padding: #{$spacing}px;
+        flex: 1;
+        flex-basis: #{2*$spacing}px;
+        overflow: hidden;
+
+        * {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .icon {
+            text-align: center;
+            width: 20px;
+            height: 20px;
+
+            $i: $iconIncrement;
+            @each $item in $dim {
+                &.#{$item} {
+                    width: #{$icon + $i}px;
+                    height: #{$icon + $i}px;
+                }
+                $i: $i + $iconIncrement;
+            }
+            img, svg {
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+            }
+        }
+    } // Cell
+    .cell-offset {
+        height: 1px;
+    }
+    @for $i from 1 through 11 {
+        .cell-#{$i} {
+            flex-grow: 0;
+            flex-basis: calc(#{($i * $cell) + "%"} - #{2*$spacing}px); // #{($i * $cell) + "%"};
+            max-width: calc(#{($i * $cell) + "%"} - #{2*$spacing}px); // #{($i * $cell) + "%"};
+        }
+    }
+    .cell-12 {
+        flex-basis: 100%;
+    }
+} // Row
+
+.button {
+    padding: 7px 10px;
+    border: 1px solid $light;
+    cursor: pointer;
+    vertical-align: middle;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    margin-left: 6px;
+    &:first-child {
+        margin-left: 0;
+    }
+    &.round {
+        border-radius: 50%;
+        padding: 6px;
+    }
+    &.inline {
+        display: inline-block;
+    }
+    @for $i from 1 through length($colorNames) {
+        $n: nth($colorNames, $i);
+        $c: nth($colorDefault, $i);
+        $l: nth($colorLight, $i);
+        $d: nth($colorDark, $i);
+        &.#{$n} {
+            background-color: #{$c};
+            color: $light;
+            border-color: #{$c};
+            &:hover {
+                background-color: #{$d};
+                color: $light;
+                border-color: #{$d};
+            }
+        }
+        &.#{$n}.light {
+            background-color: #{$l};
+            color: $dark;
+            border-color: #{$l};
+            &:hover {
+                background-color: #{$c};
+                color: $light;
+                border-color: #{$c};
+            }
+        }
+        &.#{$n}.dark {
+            background-color: #{$d};
+            color: $light;
+            border-color: #{$d};
+            &:hover {
+                background-color: #{$c};
+                color: $light;
+                border-color: #{$c};
+            }
+        }
+    }
+    &.no-border {
+        border: none;
+    }
+} // Button
+
+/* Elements */
+.checkbox {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    width:25px;
+    height: 25px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    input {
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        width: 0;
+        &:checked ~ .mark {
+            background-color: #2196F3;
+            &::after {
+                display: block;
+            }
+        }
+    }
+    &:hover {
+        input ~ .mark {
+            background-color: #ccc;
+        }
+    }
+    .mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        &::after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            content: '';
+            position: absolute;
+            display: none;
+        }
+    }
+} // Checkbox

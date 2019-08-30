@@ -1,10 +1,12 @@
 $debug: false;
 $light: #F9F9F9;
 $dark: #333333;
-$colorNames: ('orange', 'yellow', 'green', 'red', 'blue');
-$colorDefault: ('#FC9C49','#FED766','#11AF3E','#FE4A49','#009FB7');
-$colorLight: ('#FCB77B','#FFDC75','#7CC992','#FF7A7A','#6EADB7');
-$colorDark: ('#9B4D09','#937005','#1F5B30','#5E1B1B','#004049');
+$colorNames: ('orange', 'yellow', 'green', 'red', 'blue', 'white', 'black', 'grey');
+$colorDefault: ('#FC9C49','#FED766','#11AF3E','#FE4A49','#009FB7', '#FFF', '#333', '#CCC');
+$colorLight: ('#FCB77B','#FFDC75','#7CC992','#FF7A7A','#6EADB7', '#FFF', '#333', '#EFEFEF');
+$colorDark: ('#9B4D09','#937005','#1F5B30','#5E1B1B','#004049', '#FFF', '#333', '#666');
+$cell: 8.333333;
+$spacing: 10;
 $small: 600;
 $medium: 840;
 $large: 1200;
@@ -33,204 +35,9 @@ body {
         background-color: red;
     }
     width: 100%;
+    font-size: 12px;
     
-    .row { 
-        @if $debug {
-            background-color: yellow;
-        }
-        min-height: 40px;
-        display: flex;
-        flex-flow: row wrap;
-        align-items: flex-start;
-        justify-items: center;
-        padding-left:5px;
-        padding-top: 5px;
-        border-bottom: 2px solid #333;
-        margin-bottom: 10px;
-        
-        .cell {
-            @if $debug {
-                background-color: blue;
-                color: white;
-            }
-            margin-right: 5px;
-            margin-bottom: 5px;
-            font-size: 12px;
-            flex: 1;
-            flex-basis: calc(100px - 5px);
-            overflow: hidden;
-
-            * {
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-            }
-
-            .vertical-grid {
-                @if $debug {
-                    background-color: purple;
-                    color: white;
-                }
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-items: center;
-            }
-            .vcell {
-                @if $debug {
-                    background-color: green;
-                    color: white;
-                }
-                margin-bottom: 5px;
-                font-size: 12px;
-                width: 100%;
-            }
-            .icon {
-                text-align: center;
-                width: 20px;
-                height: 20px;
-
-                $i: $iconIncrement;
-                @each $item in $dim {
-                    &.#{$item} {
-                        width: #{$icon + $i}px;
-                        height: #{$icon + $i}px;
-                    }
-                    $i: $i + $iconIncrement;
-                }
-                img, svg {
-                    max-width: 100%;
-                    height: auto;
-                    max-height: 100%;
-                }
-            }
-            .button {
-                padding: 7px 10px;
-                border: 1px solid $light;
-                cursor: pointer;
-                vertical-align: middle;
-                -webkit-transition: all 0.2s ease-out;
-                -moz-transition: all 0.2s ease-out;
-                -o-transition: all 0.2s ease-out;
-                transition: all 0.2s ease-out;
-                margin-left: 6px;
-                &:first-child {
-                    margin-left: 0;
-                }
-                &.round {
-                    border-radius: 50%;
-                    padding: 6px;
-                }
-                &.inline {
-                    display: inline-block;
-                }
-                @for $i from 1 through length($colorNames) {
-                    $n: nth($colorNames, $i);
-                    $c: nth($colorDefault, $i);
-                    $l: nth($colorLight, $i);
-                    $d: nth($colorDark, $i);
-                    &.#{$n} {
-                        background-color: #{$c};
-                        color: $light;
-                        border-color: #{$c};
-                        &:hover {
-                            background-color: #{$d};
-                            color: $light;
-                            border-color: #{$d};
-                        }
-                    }
-                    &.#{$n}.light {
-                        background-color: #{$l};
-                        color: $dark;
-                        border-color: #{$l};
-                        &:hover {
-                            background-color: #{$c};
-                            color: $light;
-                            border-color: #{$c};
-                        }
-                    }
-                    &.#{$n}.dark {
-                        background-color: #{$d};
-                        color: $light;
-                        border-color: #{$d};
-                        &:hover {
-                            background-color: #{$c};
-                            color: $light;
-                            border-color: #{$c};
-                        }
-                    }
-                }
-                &.no-border {
-                    border: none;
-                }
-            }
-        } // Cell
-        .cell-offset {
-            height: 1px;
-        }
-        @for $i from 1 through 11 {
-            .cell-#{$i} {
-                flex-grow: 0;
-                flex-basis: calc(#{$i} * calc(100px - 5px));
-            }
-        }
-        .cell-12 {
-            flex-basis: calc(100% - 5px);
-        }
-
-        /* Elements */
-        .checkbox {
-            display: block;
-            position: relative;
-            cursor: pointer;
-            width:25px;
-            height: 25px;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            input {
-                position: absolute;
-                opacity: 0;
-                height: 0;
-                width: 0;
-                &:checked ~ .mark {
-                    background-color: #2196F3;
-                    &::after {
-                        display: block;
-                    }
-                }
-            }
-            &:hover {
-                input ~ .mark {
-                    background-color: #ccc;
-                }
-            }
-            .mark {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 25px;
-                width: 25px;
-                background-color: #eee;
-                &::after {
-                    left: 9px;
-                    top: 5px;
-                    width: 5px;
-                    height: 10px;
-                    border: solid white;
-                    border-width: 0 3px 3px 0;
-                    -webkit-transform: rotate(45deg);
-                    -ms-transform: rotate(45deg);
-                    transform: rotate(45deg);
-                    content: '';
-                    position: absolute;
-                    display: none;
-                }
-            }
-        } 
-
-    } // Row
+    @import 'row';
 
     // Typo
     font-size: #{$paragr}em;
@@ -306,13 +113,13 @@ body {
 
 $width: 250;
 .menu {
-    width: #{$width}px;
+    width: 100%;
     margin-bottom: 20px;
     .item {
         text-align: left;
         border-bottom: 1px solid #DDD;
         position: relative;
-        width: #{$width}px;
+        width: 100%;
         background: #EFEFEF;
         &.active {
             background: #DDD;
