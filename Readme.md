@@ -71,6 +71,14 @@ Per inserire una cella vuota (offset)
 	    ...
     </div>
 
+Allineamento
+
+	// Aggiungere la classe align-center per allineare al centro le celle
+	<div class="row align-center|bottom">
+		<div class="cell">Cella</div>
+	    ...
+	</div>
+
 ## Colori e bordi
 E' possibile utilizzare 5 schemi di colori (se ne possono aggiungere altri):
 
