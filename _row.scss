@@ -17,13 +17,19 @@
         background: #EFEFEF;
         font-weight: 600;
     }
+    &.align-center {
+        align-items: center;
+    }
+    &.align-bottom {
+        align-items: flex-end;
+    }
     
     .cell {
         @if $debug {
             background-color: blue;
             color: white;
         }
-        padding: #{$spacing}px;
+        padding: #{$spacing/2}px #{$spacing}px;
         flex: 1;
         flex-basis: #{2*$spacing}px;
         overflow: hidden;

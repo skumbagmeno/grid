@@ -1,0 +1,23 @@
+{
+  "name": "grid",
+  "version": "1.0.0",
+  "description": "Struttura:",
+  "main": "script.js",
+  "scripts": {
+    "sass": "sass --watch grid.scss grid.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skumbagmeno/grid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skumbagmeno/grid/issues"
+  },
+  "homepage": "https://github.com/skumbagmeno/grid#readme",
+  "dependencies": {
+    "sass": "^1.22.12"
+  }
+}
